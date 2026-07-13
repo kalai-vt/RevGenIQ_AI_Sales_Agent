@@ -1,0 +1,7 @@
+.env
+.env.local
+uploads/
+tests/
+__pycache__/
+*.pyc
+agentdb.db
