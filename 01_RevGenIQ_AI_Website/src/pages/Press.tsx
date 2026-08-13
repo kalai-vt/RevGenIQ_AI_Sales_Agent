@@ -1,6 +1,6 @@
 import { Download, Mail } from 'lucide-react'
 import PageShell from '../components/layout/PageShell'
-import { PRESS_EMAIL } from '../config'
+import { SUPPORT_EMAIL } from '../config'
 
 export default function Press() {
   return (
@@ -9,7 +9,7 @@ export default function Press() {
         <div className="border-2 border-slate-100 rounded-2xl p-8">
           <h2 className="font-bold text-slate-900 mb-3">Company boilerplate</h2>
           <p className="text-slate-600 leading-relaxed">
-            RevGenIQ AI builds industry-aware AI sales and support agents. Instead of one generic chatbot persona,
+            RevGenAI builds industry-aware AI sales and support agents. Instead of one generic chatbot persona,
             the platform resolves each customer's industry into a specific role — sales executive, admissions
             counsellor, hotel receptionist, and more — so the AI agent represents the business it's deployed on,
             not a one-size-fits-all assistant.
@@ -27,7 +27,7 @@ export default function Press() {
         <div className="border-2 border-slate-100 rounded-2xl p-8">
           <h2 className="font-bold text-slate-900 mb-3 flex items-center gap-2"><Mail size={18} className="text-blue-600" /> Media contact</h2>
           <p className="text-slate-500 text-sm mb-2">For interviews, quotes, or media inquiries:</p>
-          <a href={`mailto:${PRESS_EMAIL}`} className="text-blue-600 font-semibold hover:underline">{PRESS_EMAIL}</a>
+          <a href={`mailto:${SUPPORT_EMAIL}`} className="text-blue-600 font-semibold hover:underline">{SUPPORT_EMAIL}</a>
         </div>
       </div>
     </PageShell>

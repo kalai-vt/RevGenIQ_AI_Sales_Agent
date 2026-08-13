@@ -34,7 +34,7 @@ export default function ProductOverview() {
         >
           <span className="inline-block px-3 py-1 text-xs font-black text-blue-700 bg-blue-100 rounded-full mb-4 uppercase tracking-widest">Platform</span>
           <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-4">One Platform. Every AI Agent You Need.</h2>
-          <p className="text-slate-500 max-w-xl mx-auto text-lg">From first hello to closed deal — RevGenIQ AI agents work together to maximise revenue.</p>
+          <p className="text-slate-500 max-w-xl mx-auto text-lg">From first hello to closed deal — Sales IQ agents work together to maximise revenue.</p>
         </motion.div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {products.map((p, i) => {

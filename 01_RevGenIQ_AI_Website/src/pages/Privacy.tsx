@@ -1,12 +1,12 @@
 import LegalLayout from '../components/layout/LegalLayout'
-import { CONTACT_EMAIL } from '../config'
+import { SUPPORT_EMAIL } from '../config'
 
 export default function Privacy() {
   return (
     <LegalLayout
       title="Privacy Policy"
       lastUpdated="July 2026"
-      intro="This policy explains what information RevGenIQ AI collects when you use our website, dashboard, and embeddable chat widget, and how we use it."
+      intro="This policy explains what information RevGenAI collects when you use our website, dashboard, and embeddable chat widget, and how we use it."
       sections={[
         {
           heading: '1. What we collect',
@@ -50,7 +50,7 @@ export default function Privacy() {
           body: (
             <p>
               You can request a copy of, correction to, or deletion of your data at any time by contacting{' '}
-              <a href={`mailto:${CONTACT_EMAIL}`} className="text-blue-600 hover:underline">{CONTACT_EMAIL}</a>.
+              <a href={`mailto:${SUPPORT_EMAIL}`} className="text-blue-600 hover:underline">{SUPPORT_EMAIL}</a>.
             </p>
           ),
         },
@@ -58,7 +58,7 @@ export default function Privacy() {
           heading: '6. Contact',
           body: (
             <p>
-              Questions about this policy: <a href={`mailto:${CONTACT_EMAIL}`} className="text-blue-600 hover:underline">{CONTACT_EMAIL}</a>
+              Questions about this policy: <a href={`mailto:${SUPPORT_EMAIL}`} className="text-blue-600 hover:underline">{SUPPORT_EMAIL}</a>
             </p>
           ),
         },

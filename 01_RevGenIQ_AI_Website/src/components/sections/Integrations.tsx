@@ -39,7 +39,7 @@ export default function Integrations() {
         >
           <span className="inline-block px-3 py-1 text-xs font-black text-blue-300 bg-blue-900/60 rounded-full mb-4 uppercase tracking-widest border border-blue-700">Integrations</span>
           <h2 className="text-4xl md:text-5xl font-black text-white mb-4">Connects With Your Stack</h2>
-          <p className="text-slate-400 max-w-xl mx-auto text-lg">Plug RevGenIQ AI into the tools you already use — no rip and replace.</p>
+          <p className="text-slate-400 max-w-xl mx-auto text-lg">Plug Sales IQ into the tools you already use — no rip and replace.</p>
         </motion.div>
         <div className="flex flex-wrap justify-center gap-4 mb-8">
           {integrations.map((item, i) => (

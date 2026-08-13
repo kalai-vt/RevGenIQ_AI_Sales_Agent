@@ -5,7 +5,7 @@ export default function Cookies() {
     <LegalLayout
       title="Cookie Policy"
       lastUpdated="July 2026"
-      intro="RevGenIQ AI's website and dashboard use a small amount of local browser storage — here's what and why."
+      intro="RevGenAI's website and dashboard use a small amount of local browser storage — here's what and why."
       sections={[
         {
           heading: '1. What we use',

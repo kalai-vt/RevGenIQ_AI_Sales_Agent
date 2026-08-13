@@ -1,5 +1,8 @@
 import { Routes, Route } from 'react-router-dom'
 import Home from './pages/Home'
+import Products from './pages/Products'
+import SalesIQ from './pages/SalesIQ'
+import BillIQ from './pages/BillIQ'
 import Pricing from './pages/Pricing'
 import About from './pages/About'
 import Blog from './pages/Blog'
@@ -23,6 +26,9 @@ export default function App() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
+      <Route path="/products" element={<Products />} />
+      <Route path="/sales-iq" element={<SalesIQ />} />
+      <Route path="/bill-iq" element={<BillIQ />} />
       <Route path="/pricing" element={<Pricing />} />
       <Route path="/about" element={<About />} />
       <Route path="/blog" element={<Blog />} />

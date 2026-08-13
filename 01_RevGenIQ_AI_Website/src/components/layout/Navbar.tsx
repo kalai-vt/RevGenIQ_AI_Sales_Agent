@@ -1,21 +1,27 @@
-import { useState, useEffect } from 'react'
-import { Link, useNavigate, useLocation } from 'react-router-dom'
+import { useState, useEffect, useRef } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X } from 'lucide-react'
-import { DASHBOARD_LOGIN_URL, DASHBOARD_SIGNUP_URL } from '../../config'
+import { Menu, X, ChevronDown, Receipt, Bot } from 'lucide-react'
+import { DASHBOARD_LOGIN_URL, SALES_IQ_PATH, BILL_IQ_PATH } from '../../config'
+
+const products = [
+  { label: 'Sales IQ', to: SALES_IQ_PATH, desc: 'AI sales & support agents', icon: Bot },
+  { label: 'Bill IQ', to: BILL_IQ_PATH, desc: 'Billing, POS & inventory', icon: Receipt },
+]
 
 const nav = [
-  { label: 'Platform', hash: 'platform' },
-  { label: 'Solutions', hash: 'industries' },
+  { label: 'Products', to: '/products' },
   { label: 'Pricing', to: '/pricing' },
   { label: 'Docs', to: '/docs' },
+  { label: 'Contact', to: '/contact' },
 ]
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
+  const [productsOpen, setProductsOpen] = useState(false)
   const navigate = useNavigate()
-  const location = useLocation()
+  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 20)
@@ -23,16 +29,12 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handler)
   }, [])
 
-  // "Platform"/"Solutions" scroll to a section on the homepage. If we're
-  // already home, just scroll; otherwise navigate home first and let Home's
-  // hash-scroll effect (see pages/Home.tsx) handle it once the page mounts.
-  function goToSection(hash: string) {
-    setOpen(false)
-    if (location.pathname === '/') {
-      document.getElementById(hash)?.scrollIntoView({ behavior: 'smooth' })
-    } else {
-      navigate(`/#${hash}`)
-    }
+  function openProducts() {
+    if (closeTimer.current) clearTimeout(closeTimer.current)
+    setProductsOpen(true)
+  }
+  function scheduleCloseProducts() {
+    closeTimer.current = setTimeout(() => setProductsOpen(false), 150)
   }
 
   return (
@@ -45,29 +47,60 @@ export default function Navbar() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-        <Link to="/" className="flex items-center">
-          <img src="/brand/wordmark.png" alt="RevGenIQ AI" className="h-12 w-auto" />
+        <Link to="/" className="flex items-baseline gap-0.5 select-none">
+          <span className="text-2xl font-black tracking-tight text-slate-900">RevGen</span>
+          <span className="text-2xl font-black tracking-tight bg-gradient-to-r from-blue-600 to-red-500 bg-clip-text text-transparent">AI</span>
         </Link>
 
         <nav className="hidden md:flex items-center gap-1">
-          {nav.map((item) =>
-            item.to ? (
-              <Link key={item.label} to={item.to} className="px-4 py-2 text-sm text-slate-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors font-medium">
-                {item.label}
-              </Link>
-            ) : (
-              <button key={item.label} onClick={() => goToSection(item.hash!)} className="px-4 py-2 text-sm text-slate-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors font-medium">
-                {item.label}
-              </button>
-            )
-          )}
+          <div className="relative" onMouseEnter={openProducts} onMouseLeave={scheduleCloseProducts}>
+            <button
+              onClick={() => navigate('/products')}
+              className="px-4 py-2 text-sm text-slate-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors font-medium flex items-center gap-1"
+              aria-expanded={productsOpen}
+            >
+              Products <ChevronDown size={14} className={`transition-transform ${productsOpen ? 'rotate-180' : ''}`} />
+            </button>
+            <AnimatePresence>
+              {productsOpen && (
+                <motion.div
+                  initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 8 }} transition={{ duration: 0.15 }}
+                  className="absolute top-full left-0 pt-2 w-72"
+                >
+                  <div className="bg-white border border-slate-200 rounded-2xl shadow-xl p-2">
+                    {products.map((p) => (
+                      <Link
+                        key={p.label}
+                        to={p.to}
+                        onClick={() => setProductsOpen(false)}
+                        className="flex items-start gap-3 p-3 rounded-xl hover:bg-blue-50 transition-colors"
+                      >
+                        <div className="w-9 h-9 rounded-lg bg-slate-100 flex items-center justify-center text-slate-700 flex-shrink-0">
+                          <p.icon size={16} />
+                        </div>
+                        <div>
+                          <div className="text-sm font-bold text-slate-900">{p.label}</div>
+                          <div className="text-xs text-slate-500">{p.desc}</div>
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+          {nav.slice(1).map((item) => (
+            <Link key={item.label} to={item.to} className="px-4 py-2 text-sm text-slate-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors font-medium">
+              {item.label}
+            </Link>
+          ))}
         </nav>
 
         <div className="hidden md:flex items-center gap-3">
           <a href={DASHBOARD_LOGIN_URL} className="text-sm text-slate-500 hover:text-slate-800 font-medium transition-colors px-3 py-2">Sign In</a>
-          <a href={DASHBOARD_SIGNUP_URL} className="px-4 py-2 text-sm font-semibold text-white bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors shadow-md shadow-blue-200">
-            Start Free Trial
-          </a>
+          <Link to="/products" className="px-4 py-2 text-sm font-semibold text-white bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors shadow-md shadow-blue-200">
+            Get Started
+          </Link>
         </div>
 
         <button className="md:hidden text-slate-500 hover:text-slate-800" onClick={() => setOpen(!open)}>
@@ -82,19 +115,19 @@ export default function Navbar() {
             className="md:hidden bg-white border-t border-slate-100"
           >
             <div className="px-6 py-4 flex flex-col gap-1">
-              {nav.map((item) =>
-                item.to ? (
-                  <Link key={item.label} to={item.to} onClick={() => setOpen(false)} className="py-3 text-slate-600 hover:text-blue-600 text-sm font-medium border-b border-slate-50">
-                    {item.label}
-                  </Link>
-                ) : (
-                  <button key={item.label} onClick={() => goToSection(item.hash!)} className="py-3 text-left text-slate-600 hover:text-blue-600 text-sm font-medium border-b border-slate-50">
-                    {item.label}
-                  </button>
-                )
-              )}
+              <div className="pt-2 pb-1 text-xs font-black uppercase tracking-widest text-slate-400">Products</div>
+              {products.map((p) => (
+                <Link key={p.label} to={p.to} onClick={() => setOpen(false)} className="flex items-center gap-3 py-2.5 text-slate-600 hover:text-blue-600 text-sm font-medium border-b border-slate-50">
+                  <p.icon size={15} /> {p.label}
+                </Link>
+              ))}
+              {nav.slice(1).map((item) => (
+                <Link key={item.label} to={item.to} onClick={() => setOpen(false)} className="py-3 text-slate-600 hover:text-blue-600 text-sm font-medium border-b border-slate-50">
+                  {item.label}
+                </Link>
+              ))}
               <a href={DASHBOARD_LOGIN_URL} className="py-3 text-slate-600 text-sm font-medium border-b border-slate-50">Sign In</a>
-              <a href={DASHBOARD_SIGNUP_URL} className="mt-3 py-3 text-center text-sm font-semibold text-white bg-blue-600 rounded-lg">Start Free Trial</a>
+              <Link to="/products" onClick={() => setOpen(false)} className="mt-3 py-3 text-center text-sm font-semibold text-white bg-blue-600 rounded-lg">Get Started</Link>
             </div>
           </motion.div>
         )}

@@ -16,7 +16,7 @@ const posts = [
       'the model answer. The problem is that the model has no idea *who* it is supposed to be. Ask it a pricing ' +
       'question and it falls back on generic SaaS-speak, even if you run a hotel. Ask it about MOQ and it has no ' +
       'idea what that means for a healthcare clinic.\n\n' +
-      'RevGenIQ AI resolves your industry into a persona before the AI ever answers: a role, a tone, and a set of ' +
+      'RevGenAI resolves your industry into a persona before the AI ever answers: a role, a tone, and a set of ' +
       'focus areas that get baked into every response. A manufacturer\'s AI talks about MOQ, packaging, and export ' +
       'capability. A SaaS company\'s AI talks about demos, pricing tiers, and integrations. Same underlying engine, ' +
       'completely different employee.',

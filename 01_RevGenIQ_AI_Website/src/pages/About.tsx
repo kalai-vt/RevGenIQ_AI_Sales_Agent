@@ -14,12 +14,12 @@ export default function About() {
     <PageShell
       eyebrow="About Us"
       title="We build AI employees, not chatbots"
-      subtitle="RevGenIQ AI exists to give every business — not just enterprises with dedicated dev teams — an AI agent that actually understands what they sell."
+      subtitle="RevGenAI exists to give every business — not just enterprises with dedicated dev teams — an AI agent that actually understands what they sell."
     >
       <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="prose prose-slate max-w-none mb-16">
         <p className="text-slate-600 leading-relaxed text-lg">
           Most chat widgets are generic: they answer from whatever documents you upload, in whatever tone the model
-          defaults to, with no real sense of who they represent. We built RevGenIQ AI because we kept seeing the same
+          defaults to, with no real sense of who they represent. We built RevGenAI because we kept seeing the same
           failure mode — a company would rebrand or switch industries, and their AI assistant would keep answering
           like the old business.
         </p>

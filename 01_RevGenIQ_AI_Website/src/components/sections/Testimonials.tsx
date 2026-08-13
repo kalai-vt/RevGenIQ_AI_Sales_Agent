@@ -2,10 +2,10 @@ import { motion } from 'framer-motion'
 import { Star } from 'lucide-react'
 
 const reviews = [
-  { name: 'Sarah Chen', role: 'VP Sales, NovaTech', text: 'RevGenIQ AI tripled our qualified leads in 30 days. The Sales Agent handles objections better than some of our reps.', rating: 5, avatar: 'SC', color: 'bg-blue-600' },
+  { name: 'Sarah Chen', role: 'VP Sales, NovaTech', text: 'Sales IQ tripled our qualified leads in 30 days. The Sales Agent handles objections better than some of our reps.', rating: 5, avatar: 'SC', color: 'bg-blue-600' },
   { name: 'Marcus Rivera', role: 'CTO, CloudPeak', text: 'Implementation took 20 minutes. Our support ticket volume dropped 72% in the first week. Incredible ROI.', rating: 5, avatar: 'MR', color: 'bg-red-500' },
   { name: 'Priya Patel', role: 'Head of Marketing, Finleap', text: 'The AI understands our product deeply. Our CSAT score jumped from 3.8 to 4.9 in just two months.', rating: 5, avatar: 'PP', color: 'bg-green-600' },
-  { name: 'James Okonkwo', role: 'CEO, RetailFlow', text: 'We replaced three chatbot tools with RevGenIQ AI and cut costs by 60%. The analytics alone are worth the price.', rating: 5, avatar: 'JO', color: 'bg-blue-600' },
+  { name: 'James Okonkwo', role: 'CEO, RetailFlow', text: 'We replaced three chatbot tools with Sales IQ and cut costs by 60%. The analytics alone are worth the price.', rating: 5, avatar: 'JO', color: 'bg-blue-600' },
   { name: 'Lisa Yamamoto', role: 'Director of CX, HealthFirst', text: 'Our patients get instant answers about appointments and insurance 24/7. Completely transformed our support.', rating: 5, avatar: 'LY', color: 'bg-red-500' },
   { name: 'Tom Bradley', role: 'Founder, EduStack', text: 'The RAG knowledge base is insanely good. Our AI answers complex education policy questions accurately every time.', rating: 5, avatar: 'TB', color: 'bg-green-600' },
 ]
@@ -29,7 +29,7 @@ export default function Testimonials() {
         >
           <span className="inline-block px-3 py-1 text-xs font-black text-amber-700 bg-amber-100 rounded-full mb-4 uppercase tracking-widest">Testimonials</span>
           <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-4">Loved by Revenue Teams</h2>
-          <p className="text-slate-500 max-w-xl mx-auto text-lg">Join thousands of companies generating more revenue with RevGenIQ AI.</p>
+          <p className="text-slate-500 max-w-xl mx-auto text-lg">Join thousands of companies generating more revenue with Sales IQ.</p>
         </motion.div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {reviews.map((r, i) => (

@@ -47,7 +47,7 @@ const tutorials = [
 
 export default function Tutorials() {
   return (
-    <PageShell eyebrow="Tutorials" title="Step-by-step guides" subtitle="Practical walkthroughs for getting the most out of RevGenIQ AI.">
+    <PageShell eyebrow="Tutorials" title="Step-by-step guides" subtitle="Practical walkthroughs for getting the most out of RevGenAI.">
       <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
         {tutorials.map((t, i) => (
           <motion.div

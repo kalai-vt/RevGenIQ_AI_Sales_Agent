@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { ArrowRight, Zap } from 'lucide-react'
+import { DASHBOARD_SIGNUP_URL, SUPPORT_EMAIL } from '../../config'
 
 export default function CTA() {
   return (
@@ -20,14 +21,14 @@ export default function CTA() {
             <span className="text-yellow-300">Into Customers?</span>
           </h2>
           <p className="text-blue-100 text-lg max-w-xl mx-auto mb-10">
-            Join 10,000+ businesses using RevGenIQ AI to automate revenue. Start free — no credit card required.
+            Join 10,000+ businesses using Sales IQ to automate revenue. Start free — no credit card required.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a href="#" className="group flex items-center gap-2 px-8 py-4 bg-white text-blue-700 font-bold rounded-xl transition-all duration-200 shadow-2xl hover:shadow-white/20 hover:-translate-y-0.5 text-base">
+            <a href={DASHBOARD_SIGNUP_URL} className="group flex items-center gap-2 px-8 py-4 bg-white text-blue-700 font-bold rounded-xl transition-all duration-200 shadow-2xl hover:shadow-white/20 hover:-translate-y-0.5 text-base">
               Start Free Trial — No Card Needed
               <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
             </a>
-            <a href="#" className="flex items-center gap-2 px-8 py-4 text-white border-2 border-white/30 hover:border-white/60 hover:bg-white/10 rounded-xl transition-all font-semibold text-base">
+            <a href={`mailto:${SUPPORT_EMAIL}?subject=Book%20a%20demo`} className="flex items-center gap-2 px-8 py-4 text-white border-2 border-white/30 hover:border-white/60 hover:bg-white/10 rounded-xl transition-all font-semibold text-base">
               Book a Demo
             </a>
           </div>

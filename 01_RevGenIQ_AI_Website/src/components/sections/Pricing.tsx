@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { Check, Zap } from 'lucide-react'
-import { DASHBOARD_SIGNUP_URL, SALES_EMAIL } from '../../config'
+import { DASHBOARD_SIGNUP_URL, SUPPORT_EMAIL } from '../../config'
 
 // Kept in lockstep with the dashboard's real plans (02_RevGenIQ_AI_Dashboard
 // backend/main.py `_seed_plans`) — these are the actual billable tiers, not
@@ -97,7 +97,7 @@ export default function Pricing() {
           ))}
         </div>
         <p className="text-center text-slate-500 text-sm mt-10">
-          Need something custom? <a href={`mailto:${SALES_EMAIL}`} className="text-blue-600 font-semibold hover:underline">Talk to sales</a>
+          Need something custom? <a href={`mailto:${SUPPORT_EMAIL}`} className="text-blue-600 font-semibold hover:underline">Talk to sales</a>
         </p>
       </div>
     </section>

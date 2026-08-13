@@ -1,12 +1,12 @@
 import LegalLayout from '../components/layout/LegalLayout'
-import { CONTACT_EMAIL } from '../config'
+import { SUPPORT_EMAIL } from '../config'
 
 export default function Terms() {
   return (
     <LegalLayout
       title="Terms of Service"
       lastUpdated="July 2026"
-      intro="These terms govern your use of the RevGenIQ AI website, dashboard, and widget."
+      intro="These terms govern your use of the RevGenAI website, dashboard, and widget."
       sections={[
         {
           heading: '1. Using the service',
@@ -30,7 +30,7 @@ export default function Terms() {
         },
         {
           heading: '6. Contact',
-          body: <p>Questions about these terms: <a href={`mailto:${CONTACT_EMAIL}`} className="text-blue-600 hover:underline">{CONTACT_EMAIL}</a></p>,
+          body: <p>Questions about these terms: <a href={`mailto:${SUPPORT_EMAIL}`} className="text-blue-600 hover:underline">{SUPPORT_EMAIL}</a></p>,
         },
       ]}
     />

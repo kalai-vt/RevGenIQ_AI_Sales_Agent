@@ -1,16 +1,16 @@
-import { Link, useNavigate, useLocation } from 'react-router-dom'
-import { X, Globe, GitFork } from 'lucide-react'
-import { CONTACT_EMAIL } from '../../config'
+import { Link } from 'react-router-dom'
+import { Mail, Phone, MessageCircle } from 'lucide-react'
+import { SUPPORT_EMAIL, PHONE_DISPLAY, PHONE_HREF, WHATSAPP_URL, SALES_IQ_PATH, BILL_IQ_PATH } from '../../config'
 
 const cols = [
   {
-    title: 'Product',
+    title: 'Products',
     links: [
-      { label: 'Platform', hash: 'platform' },
+      { label: 'Sales IQ', to: SALES_IQ_PATH },
+      { label: 'Bill IQ', to: BILL_IQ_PATH },
+      { label: 'All Products', to: '/products' },
       { label: 'Pricing', to: '/pricing' },
       { label: 'Changelog', to: '/changelog' },
-      { label: 'Roadmap', to: '/roadmap' },
-      { label: 'Status', to: '/status' },
     ],
   },
   {
@@ -46,35 +46,35 @@ const cols = [
 ]
 
 export default function Footer() {
-  const navigate = useNavigate()
-  const location = useLocation()
-
-  function goToSection(hash: string) {
-    if (location.pathname === '/') {
-      document.getElementById(hash)?.scrollIntoView({ behavior: 'smooth' })
-    } else {
-      navigate(`/#${hash}`)
-    }
-  }
-
   return (
     <footer className="border-t border-slate-200 bg-slate-50">
       <div className="max-w-7xl mx-auto px-6 py-16">
         <div className="grid grid-cols-2 md:grid-cols-6 gap-8 mb-12">
           <div className="col-span-2">
-            <Link to="/" className="flex items-center mb-5">
-              <img src="/brand/wordmark.png" alt="RevGenIQ AI" className="h-12 w-auto" />
+            <Link to="/" className="flex items-baseline gap-0.5 select-none mb-5">
+              <span className="text-2xl font-black tracking-tight text-slate-900">RevGen</span>
+              <span className="text-2xl font-black tracking-tight bg-gradient-to-r from-blue-600 to-red-500 bg-clip-text text-transparent">AI</span>
             </Link>
             <p className="text-slate-500 text-sm leading-relaxed max-w-xs mb-6">
-              AI Agents That Drive Revenue. Turn every visitor into your next customer.
+              Business software that runs itself. Sales IQ for revenue, Bill IQ for the counter.
             </p>
-            <div className="flex items-center gap-3">
-              {[X, Globe, GitFork].map((Icon, i) => (
-                <a key={i} href={`mailto:${CONTACT_EMAIL}`} className="w-8 h-8 rounded-lg bg-white hover:bg-blue-50 border border-slate-200 flex items-center justify-center text-slate-400 hover:text-blue-600 transition-colors shadow-sm">
-                  <Icon size={14} />
+            <ul className="space-y-2.5">
+              <li>
+                <a href={`mailto:${SUPPORT_EMAIL}`} className="flex items-center gap-2 text-slate-500 hover:text-blue-600 text-sm transition-colors">
+                  <Mail size={14} className="text-slate-400" /> {SUPPORT_EMAIL}
                 </a>
-              ))}
-            </div>
+              </li>
+              <li>
+                <a href={PHONE_HREF} className="flex items-center gap-2 text-slate-500 hover:text-blue-600 text-sm transition-colors">
+                  <Phone size={14} className="text-slate-400" /> {PHONE_DISPLAY}
+                </a>
+              </li>
+              <li>
+                <a href={WHATSAPP_URL} target="_blank" rel="noreferrer" className="flex items-center gap-2 text-slate-500 hover:text-green-600 text-sm transition-colors">
+                  <MessageCircle size={14} className="text-slate-400" /> WhatsApp us
+                </a>
+              </li>
+            </ul>
           </div>
           {cols.map((col) => (
             <div key={col.title}>
@@ -82,15 +82,9 @@ export default function Footer() {
               <ul className="space-y-2.5">
                 {col.links.map((link) => (
                   <li key={link.label}>
-                    {'hash' in link ? (
-                      <button onClick={() => goToSection(link.hash!)} className="text-slate-500 hover:text-blue-600 text-sm transition-colors text-left">
-                        {link.label}
-                      </button>
-                    ) : (
-                      <Link to={link.to!} className="text-slate-500 hover:text-blue-600 text-sm transition-colors">
-                        {link.label}
-                      </Link>
-                    )}
+                    <Link to={link.to} className="text-slate-500 hover:text-blue-600 text-sm transition-colors">
+                      {link.label}
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -98,7 +92,7 @@ export default function Footer() {
           ))}
         </div>
         <div className="pt-8 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-slate-400 text-sm">2026 RevGenIQ AI, Inc. All rights reserved.</p>
+          <p className="text-slate-400 text-sm">&copy; 2026 RevGenAI. All rights reserved.</p>
           <div className="flex items-center gap-2">
             <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
             <Link to="/status" className="text-slate-400 text-xs hover:text-blue-600 transition-colors">All systems operational</Link>

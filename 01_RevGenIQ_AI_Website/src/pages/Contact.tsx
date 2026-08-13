@@ -1,13 +1,13 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Mail, MessageSquare, HeadphonesIcon, Send } from 'lucide-react'
+import { Mail, Phone, MessageCircle, Send } from 'lucide-react'
 import PageShell from '../components/layout/PageShell'
-import { CONTACT_EMAIL, SALES_EMAIL, SUPPORT_EMAIL } from '../config'
+import { SUPPORT_EMAIL, PHONE_DISPLAY, PHONE_HREF, WHATSAPP_URL } from '../config'
 
 const channels = [
-  { icon: MessageSquare, label: 'General', email: CONTACT_EMAIL, body: 'Questions about the platform or partnerships.' },
-  { icon: Send, label: 'Sales', email: SALES_EMAIL, body: 'Pricing, demos, and custom plans.' },
-  { icon: HeadphonesIcon, label: 'Support', email: SUPPORT_EMAIL, body: 'Already a customer and need help.' },
+  { icon: Mail, label: 'Email', value: SUPPORT_EMAIL, href: `mailto:${SUPPORT_EMAIL}`, body: 'Questions about Sales IQ, Bill IQ, or anything else.' },
+  { icon: Phone, label: 'Call', value: PHONE_DISPLAY, href: PHONE_HREF, body: 'Speak with us directly, Mon–Sat.' },
+  { icon: MessageCircle, label: 'WhatsApp', value: 'Chat with us', href: WHATSAPP_URL, body: 'Fastest way to reach the team.' },
 ]
 
 export default function Contact() {
@@ -19,7 +19,7 @@ export default function Contact() {
     const body = encodeURIComponent(
       `Name: ${form.name}\nEmail: ${form.email}\nCompany: ${form.company}\n\n${form.message}`
     )
-    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`
+    window.location.href = `mailto:${SUPPORT_EMAIL}?subject=${subject}&body=${body}`
   }
 
   return (
@@ -32,7 +32,9 @@ export default function Contact() {
         {channels.map((c, i) => (
           <motion.a
             key={c.label}
-            href={`mailto:${c.email}`}
+            href={c.href}
+            target={c.label === 'WhatsApp' ? '_blank' : undefined}
+            rel={c.label === 'WhatsApp' ? 'noreferrer' : undefined}
             initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.06 }}
             className="border-2 border-slate-100 rounded-2xl p-6 hover:border-blue-200 hover:shadow-lg transition-all block"
           >
@@ -41,7 +43,7 @@ export default function Contact() {
             </div>
             <h3 className="font-bold text-slate-900 mb-1">{c.label}</h3>
             <p className="text-slate-500 text-sm mb-3">{c.body}</p>
-            <span className="text-blue-600 text-sm font-semibold flex items-center gap-1"><Mail size={13} /> {c.email}</span>
+            <span className="text-blue-600 text-sm font-semibold flex items-center gap-1"><Send size={13} /> {c.value}</span>
           </motion.a>
         ))}
       </div>

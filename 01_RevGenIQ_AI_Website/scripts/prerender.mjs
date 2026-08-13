@@ -8,7 +8,8 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const root = path.resolve(__dirname, '..')
 
 const ROUTES = [
-  '/', '/pricing', '/about', '/blog', '/careers', '/press', '/contact',
+  '/', '/products', '/sales-iq', '/bill-iq',
+  '/pricing', '/about', '/blog', '/careers', '/press', '/contact',
   '/changelog', '/roadmap', '/status', '/docs', '/community', '/tutorials',
   '/templates', '/privacy', '/terms', '/security', '/gdpr', '/cookies',
 ]

@@ -1,5 +1,5 @@
 import LegalLayout from '../components/layout/LegalLayout'
-import { CONTACT_EMAIL } from '../config'
+import { SUPPORT_EMAIL } from '../config'
 
 export default function Gdpr() {
   return (
@@ -14,7 +14,7 @@ export default function Gdpr() {
         },
         {
           heading: '2. Your rights',
-          body: <p>Access, correction, deletion, portability, and objection to processing — available by emailing <a href={`mailto:${CONTACT_EMAIL}`} className="text-blue-600 hover:underline">{CONTACT_EMAIL}</a>. We aim to respond within 30 days.</p>,
+          body: <p>Access, correction, deletion, portability, and objection to processing — available by emailing <a href={`mailto:${SUPPORT_EMAIL}`} className="text-blue-600 hover:underline">{SUPPORT_EMAIL}</a>. We aim to respond within 30 days.</p>,
         },
         {
           heading: '3. Data transfers',

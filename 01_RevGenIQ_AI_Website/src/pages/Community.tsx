@@ -1,6 +1,6 @@
 import { MessageCircle, Mail } from 'lucide-react'
 import PageShell from '../components/layout/PageShell'
-import { CONTACT_EMAIL } from '../config'
+import { SUPPORT_EMAIL } from '../config'
 
 export default function Community() {
   return (
@@ -15,8 +15,8 @@ export default function Community() {
           where that stands. Until then, the fastest way to share feedback, ask questions, or swap tips with our
           team directly is email.
         </p>
-        <a href={`mailto:${CONTACT_EMAIL}`} className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl transition-colors shadow-lg shadow-blue-200">
-          <Mail size={16} /> {CONTACT_EMAIL}
+        <a href={`mailto:${SUPPORT_EMAIL}`} className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl transition-colors shadow-lg shadow-blue-200">
+          <Mail size={16} /> {SUPPORT_EMAIL}
         </a>
       </div>
     </PageShell>

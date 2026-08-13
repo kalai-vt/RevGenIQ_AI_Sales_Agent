@@ -4,7 +4,7 @@ import { ChevronDown } from 'lucide-react'
 
 const faqs = [
   { q: 'How long does it take to set up?', a: 'Most customers are live in under 20 minutes. Sign up, train your AI with your content, paste one line of code — done.' },
-  { q: 'Do I need to know how to code?', a: 'No. RevGenIQ AI is fully no-code. Our visual widget builder and knowledge manager require zero technical knowledge.' },
+  { q: 'Do I need to know how to code?', a: 'No. Sales IQ is fully no-code. Our visual widget builder and knowledge manager require zero technical knowledge.' },
   { q: 'How does the AI learn about my business?', a: 'Upload documents, paste your website URL for auto-crawling, or type FAQs directly. Your AI updates its knowledge instantly.' },
   { q: 'Can I use my own OpenAI API key?', a: 'Yes. You can bring your own API key for full control over model selection and costs, or use our managed AI infrastructure.' },
   { q: 'What CRMs and tools do you integrate with?', a: 'HubSpot, Salesforce, Zoho, Pipedrive, Slack, Microsoft Teams, WhatsApp, Google Workspace, and 50+ via webhooks.' },

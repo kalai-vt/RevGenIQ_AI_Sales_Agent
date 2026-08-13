@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { ArrowRight, Play, Sparkles, Bot, TrendingUp, Users, Zap } from 'lucide-react'
-import { DASHBOARD_SIGNUP_URL, SALES_EMAIL } from '../../config'
+import { DASHBOARD_SIGNUP_URL, SUPPORT_EMAIL } from '../../config'
 
 export default function Hero() {
   return (
@@ -30,7 +30,7 @@ export default function Hero() {
           className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-blue-200 bg-blue-50 text-blue-700 text-sm font-semibold mb-8"
         >
           <Sparkles size={14} />
-          Introducing RevGenIQ AI Platform 2.0
+          Sales IQ by RevGenAI
           <ArrowRight size={12} />
         </motion.div>
 
@@ -60,7 +60,7 @@ export default function Hero() {
           <a href="#platform" className="flex items-center gap-2 px-7 py-3.5 text-red-600 border-2 border-red-200 hover:border-red-400 hover:bg-red-50 rounded-xl transition-all font-bold">
             <Play size={16} className="fill-red-500 text-red-500" /> Watch Demo
           </a>
-          <a href={`mailto:${SALES_EMAIL}?subject=Book%20a%20demo`} className="flex items-center gap-2 px-7 py-3.5 text-slate-600 border border-slate-200 hover:border-slate-300 hover:bg-slate-50 rounded-xl transition-all font-medium">
+          <a href={`mailto:${SUPPORT_EMAIL}?subject=Book%20a%20demo`} className="flex items-center gap-2 px-7 py-3.5 text-slate-600 border border-slate-200 hover:border-slate-300 hover:bg-slate-50 rounded-xl transition-all font-medium">
             Book a Demo
           </a>
         </motion.div>
@@ -92,7 +92,7 @@ export default function Hero() {
                 <Zap size={14} className="text-white" />
               </div>
               <div className="text-left">
-                <div className="text-slate-900 text-sm font-bold">RevGenIQ Sales Agent</div>
+                <div className="text-slate-900 text-sm font-bold">Sales IQ Agent</div>
                 <div className="text-green-600 text-xs flex items-center gap-1 font-semibold">
                   <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse inline-block" />
                   Online · Powered by GPT-4o

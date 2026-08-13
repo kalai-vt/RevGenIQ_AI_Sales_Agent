@@ -13,7 +13,7 @@ const entries = [
   {
     version: '2.0', date: 'June 2026', tag: 'Update',
     items: [
-      'Rebranded to RevGenIQ AI',
+      'Rebranded to RevGenAI',
       'Analytics dashboard with conversation trends, intent breakdown, and lead funnel',
       'Reorganized platform into dedicated Website, Dashboard, and AI Agent services',
     ],
@@ -36,7 +36,7 @@ const TAG_COLOR: Record<string, string> = {
 
 export default function Changelog() {
   return (
-    <PageShell eyebrow="Changelog" title="What's new" subtitle="Recent updates to the RevGenIQ AI platform.">
+    <PageShell eyebrow="Changelog" title="What's new" subtitle="Recent updates to the RevGenAI platform.">
       <div className="max-w-2xl mx-auto space-y-10">
         {entries.map((e, i) => (
           <motion.div

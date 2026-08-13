@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { MapPin, Briefcase, ArrowRight } from 'lucide-react'
 import PageShell from '../components/layout/PageShell'
-import { CAREERS_EMAIL } from '../config'
+import { SUPPORT_EMAIL } from '../config'
 
 const roles = [
   { title: 'Founding Full-Stack Engineer', location: 'Remote', type: 'Full-time', desc: 'Own features end-to-end across our FastAPI backend and React dashboard.' },
@@ -20,7 +20,7 @@ export default function Careers() {
         {roles.map((r, i) => (
           <motion.a
             key={r.title}
-            href={`mailto:${CAREERS_EMAIL}?subject=${encodeURIComponent('Application: ' + r.title)}`}
+            href={`mailto:${SUPPORT_EMAIL}?subject=${encodeURIComponent('Application: ' + r.title)}`}
             initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.06 }}
             className="flex items-center justify-between gap-4 border-2 border-slate-100 rounded-2xl p-6 hover:border-blue-200 hover:shadow-lg transition-all"
           >
@@ -38,7 +38,7 @@ export default function Careers() {
       </div>
       <p className="text-center text-slate-500 text-sm mt-10">
         Don't see a fit? Reach out anyway at{' '}
-        <a href={`mailto:${CAREERS_EMAIL}`} className="text-blue-600 font-semibold hover:underline">{CAREERS_EMAIL}</a>
+        <a href={`mailto:${SUPPORT_EMAIL}`} className="text-blue-600 font-semibold hover:underline">{SUPPORT_EMAIL}</a>
       </p>
     </PageShell>
   )

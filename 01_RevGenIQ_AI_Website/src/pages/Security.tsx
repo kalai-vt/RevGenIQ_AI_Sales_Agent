@@ -1,5 +1,5 @@
 import LegalLayout from '../components/layout/LegalLayout'
-import { CONTACT_EMAIL } from '../config'
+import { SUPPORT_EMAIL } from '../config'
 
 export default function Security() {
   return (
@@ -26,7 +26,7 @@ export default function Security() {
         },
         {
           heading: '5. Reporting a concern',
-          body: <p>If you believe you've found a security issue, please email <a href={`mailto:${CONTACT_EMAIL}`} className="text-blue-600 hover:underline">{CONTACT_EMAIL}</a> with details — we take reports seriously and will respond promptly.</p>,
+          body: <p>If you believe you've found a security issue, please email <a href={`mailto:${SUPPORT_EMAIL}`} className="text-blue-600 hover:underline">{SUPPORT_EMAIL}</a> with details — we take reports seriously and will respond promptly.</p>,
         },
       ]}
     />

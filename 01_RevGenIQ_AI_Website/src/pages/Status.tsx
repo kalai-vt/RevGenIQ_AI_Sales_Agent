@@ -36,7 +36,7 @@ export default function Status() {
   const allOperational = services.every((s) => (statuses[s.name] ?? 'checking') === 'operational')
 
   return (
-    <PageShell eyebrow="Status" title="System Status" subtitle="Live status of RevGenIQ AI services.">
+    <PageShell eyebrow="Status" title="System Status" subtitle="Live status of RevGenAI services.">
       <div className={`max-w-2xl mx-auto mb-8 rounded-2xl p-5 flex items-center gap-3 ${
         allOperational ? 'bg-green-50 border-2 border-green-200' : 'bg-amber-50 border-2 border-amber-200'
       }`}>
