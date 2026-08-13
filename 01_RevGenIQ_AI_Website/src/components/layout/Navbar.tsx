@@ -2,11 +2,16 @@ import { useState, useEffect, useRef } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X, ChevronDown, Receipt, Bot } from 'lucide-react'
-import { DASHBOARD_LOGIN_URL, SALES_IQ_PATH, BILL_IQ_PATH } from '../../config'
+import { DASHBOARD_LOGIN_URL, BILL_IQ_LOGIN_URL, SALES_IQ_PATH, BILL_IQ_PATH } from '../../config'
 
 const products = [
   { label: 'Sales IQ', to: SALES_IQ_PATH, desc: 'AI sales & support agents', icon: Bot },
   { label: 'Bill IQ', to: BILL_IQ_PATH, desc: 'Billing, POS & inventory', icon: Receipt },
+]
+
+const signIns = [
+  { label: 'Sales IQ', href: DASHBOARD_LOGIN_URL, icon: Bot },
+  { label: 'Bill IQ', href: BILL_IQ_LOGIN_URL, icon: Receipt },
 ]
 
 const nav = [
@@ -20,8 +25,10 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
   const [productsOpen, setProductsOpen] = useState(false)
+  const [signInOpen, setSignInOpen] = useState(false)
   const navigate = useNavigate()
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
+  const signInCloseTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 20)
@@ -35,6 +42,14 @@ export default function Navbar() {
   }
   function scheduleCloseProducts() {
     closeTimer.current = setTimeout(() => setProductsOpen(false), 150)
+  }
+
+  function openSignIn() {
+    if (signInCloseTimer.current) clearTimeout(signInCloseTimer.current)
+    setSignInOpen(true)
+  }
+  function scheduleCloseSignIn() {
+    signInCloseTimer.current = setTimeout(() => setSignInOpen(false), 150)
   }
 
   return (
@@ -97,7 +112,30 @@ export default function Navbar() {
         </nav>
 
         <div className="hidden md:flex items-center gap-3">
-          <a href={DASHBOARD_LOGIN_URL} className="text-sm text-slate-500 hover:text-slate-800 font-medium transition-colors px-3 py-2">Sign In</a>
+          <div className="relative" onMouseEnter={openSignIn} onMouseLeave={scheduleCloseSignIn}>
+            <button
+              className="flex items-center gap-1 text-sm text-slate-500 hover:text-slate-800 font-medium transition-colors px-3 py-2"
+              aria-expanded={signInOpen}
+            >
+              Sign In <ChevronDown size={13} className={`transition-transform ${signInOpen ? 'rotate-180' : ''}`} />
+            </button>
+            <AnimatePresence>
+              {signInOpen && (
+                <motion.div
+                  initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 8 }} transition={{ duration: 0.15 }}
+                  className="absolute top-full right-0 pt-2 w-48"
+                >
+                  <div className="bg-white border border-slate-200 rounded-2xl shadow-xl p-2">
+                    {signIns.map((s) => (
+                      <a key={s.label} href={s.href} className="flex items-center gap-2.5 p-2.5 rounded-xl hover:bg-blue-50 transition-colors text-sm font-medium text-slate-700">
+                        <s.icon size={15} className="text-slate-500" /> {s.label}
+                      </a>
+                    ))}
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
           <Link to="/products" className="px-4 py-2 text-sm font-semibold text-white bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors shadow-md shadow-blue-200">
             Get Started
           </Link>
@@ -126,7 +164,12 @@ export default function Navbar() {
                   {item.label}
                 </Link>
               ))}
-              <a href={DASHBOARD_LOGIN_URL} className="py-3 text-slate-600 text-sm font-medium border-b border-slate-50">Sign In</a>
+              <div className="pt-2 pb-1 text-xs font-black uppercase tracking-widest text-slate-400">Sign In</div>
+              {signIns.map((s) => (
+                <a key={s.label} href={s.href} className="flex items-center gap-3 py-2.5 text-slate-600 hover:text-blue-600 text-sm font-medium border-b border-slate-50">
+                  <s.icon size={15} /> {s.label}
+                </a>
+              ))}
               <Link to="/products" onClick={() => setOpen(false)} className="mt-3 py-3 text-center text-sm font-semibold text-white bg-blue-600 rounded-lg">Get Started</Link>
             </div>
           </motion.div>

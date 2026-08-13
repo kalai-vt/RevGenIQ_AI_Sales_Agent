@@ -1,9 +1,15 @@
 // Where the marketing site sends visitors to actually use the product.
-// The dashboard is a separate deployed app (02_RevGenIQ_AI_Dashboard), not a
-// route within this site.
-export const DASHBOARD_URL = 'https://revgeniq-ai-dashboard.vercel.app'
+// Both apps are separate deployments (02_RevGenIQ_AI_Dashboard and the
+// external revgen_billiq repo), each on their own revgenai.in subdomain —
+// not routes within this site.
+export const DASHBOARD_URL = 'https://salesiq.revgenai.in'
 export const DASHBOARD_LOGIN_URL = `${DASHBOARD_URL}/login`
 export const DASHBOARD_SIGNUP_URL = `${DASHBOARD_URL}/signup`
+
+// The real Bill IQ app is mounted under /billiq within its own deployment.
+export const BILL_IQ_APP_URL = 'https://billiq.revgenai.in/billiq'
+export const BILL_IQ_LOGIN_URL = `${BILL_IQ_APP_URL}/login`
+export const BILL_IQ_SIGNUP_URL = `${BILL_IQ_APP_URL}/register`
 
 export const COMPANY_NAME = 'RevGenAI'
 export const SITE_URL = 'https://revgenai.in'

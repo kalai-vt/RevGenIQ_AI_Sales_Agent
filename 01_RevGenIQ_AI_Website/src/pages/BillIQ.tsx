@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import Navbar from '../components/layout/Navbar'
 import Footer from '../components/layout/Footer'
+import { BILL_IQ_SIGNUP_URL } from '../config'
 import './BillIQ.css'
 
 const modules = [
@@ -243,7 +244,7 @@ export default function BillIQ() {
                     <li><span className="chk">✓</span><span>1 GB storage</span></li>
                   </ul>
                   <div className="invoice-foot">
-                    <Link className="btn btn-ghost btn-block" to="/contact">Choose Basic</Link>
+                    <a className="btn btn-ghost btn-block" href={BILL_IQ_SIGNUP_URL}>Choose Basic</a>
                   </div>
                 </div>
 
@@ -270,7 +271,7 @@ export default function BillIQ() {
                     <li><span className="chk">✓</span><span>Unlimited storage</span></li>
                   </ul>
                   <div className="invoice-foot">
-                    <Link className="btn btn-primary btn-block" to="/contact">Choose Advance</Link>
+                    <a className="btn btn-primary btn-block" href={BILL_IQ_SIGNUP_URL}>Choose Advance</a>
                   </div>
                 </div>
               </div>
